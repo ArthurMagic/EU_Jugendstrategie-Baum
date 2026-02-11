@@ -1,5 +1,5 @@
-import { use, useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { Leaf, Monitor, Trophy, Heart, CheckCircle2, Plane, ArrowRight, CircleEqual } from "lucide-react";
 import { TopicCard } from "@/components/topic-card";
 import { Button } from "@/components/ui/button";
