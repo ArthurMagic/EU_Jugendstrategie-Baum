@@ -11,11 +11,6 @@ const supabase = createClient(
 );
 
 const app = express();
-const PORT = 3000;
-
-// Fix für __dirname bei ES Modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 app.use(express.json());
 
@@ -81,16 +76,4 @@ app.get("/api/getData", async (req, res) => {
     console.log("Debug Result:", data);
     res.status(200).json(data);
 })
-// Production: React Build serven
-if (process.env.NODE_ENV === "production") {
-  const clientPath = path.join(__dirname, "client/dist");
-  app.use(express.static(clientPath));
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(clientPath, "index.html"));
-  });
-}
-
-app.listen(PORT, () => {
-  console.log(`Server läuft auf http://localhost:${PORT}`);
-});
